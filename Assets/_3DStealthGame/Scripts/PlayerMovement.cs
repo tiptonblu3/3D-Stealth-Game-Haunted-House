@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public InputAction MoveAction;
 
     public float walkSpeed = 1.0f;
+    public float sprintSpeed = 2.0f;
     public float turnSpeed = 20f;
 
     Rigidbody m_Rigidbody;
@@ -41,5 +42,14 @@ public class PlayerMovement : MonoBehaviour
         
         m_Rigidbody.MoveRotation (m_Rotation);
         m_Rigidbody.MovePosition (m_Rigidbody.position + m_Movement * walkSpeed * Time.deltaTime);
+
+
+        //m_Rigidbody.MovePosition (m_Rigidbody.position + m_Movement * sprintSpeed * Time.deltaTime);
+
+        // Check if the player is holding down the Shift key
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        {
+        m_Rigidbody.MovePosition(m_Rigidbody.position + m_Movement * sprintSpeed * Time.deltaTime);
+        }
     }
 }

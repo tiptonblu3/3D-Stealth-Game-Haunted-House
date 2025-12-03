@@ -54,12 +54,6 @@ public class PlayerMovement : MonoBehaviour
         m_Rigidbody.MovePosition(m_Rigidbody.position + m_Movement * sprintSpeed * Time.deltaTime);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Instantiate(firePrefab, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
-            Destroy(firePrefab, 4);
-
-        }
         
         
     }

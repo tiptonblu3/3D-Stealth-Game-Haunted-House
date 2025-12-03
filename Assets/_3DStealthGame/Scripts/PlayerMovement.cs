@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public float sprintSpeed = 2.0f;
     public float turnSpeed = 20f;
 
+    public GameObject firePrefab;
+
     Rigidbody m_Rigidbody;
     Vector3 m_Movement;
     Quaternion m_Rotation = Quaternion.identity;
@@ -51,5 +53,14 @@ public class PlayerMovement : MonoBehaviour
         {
         m_Rigidbody.MovePosition(m_Rigidbody.position + m_Movement * sprintSpeed * Time.deltaTime);
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(firePrefab, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
+            Destroy(firePrefab, 4);
+
+        }
+        
+        
     }
 }

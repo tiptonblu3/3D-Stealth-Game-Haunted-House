@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Enemy
+  - LockedDoor
+  - Key
+  - targetTag
   layers:
   - Default
   - TransparentFX

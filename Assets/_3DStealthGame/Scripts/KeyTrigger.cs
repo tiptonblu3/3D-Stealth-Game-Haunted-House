@@ -7,7 +7,10 @@ public class KeyTrigger : MonoBehaviour
     public GameObject targetGameObject;
     public GameObject secondtargetGameObject;
     bool m_IsPlayerAtKey;
-
+    public AudioSource audioSource;
+    public AudioClip Dooropen;
+    public float displayDuration = 1f;
+    
 
     public GameObject player;
 
@@ -19,44 +22,31 @@ public class KeyTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (m_IsPlayerAtKey)
-        {
-
-                        Debug.Log("This code Ran!");
-
-            targetGameObject.SetActive(false);
-                secondtargetGameObject.SetActive(false);
-
-
-                
-
-                gameObject.SetActive(false);
-        }
-
-        
+         
     }
     
+
+private void KeyCollect()
+    {
+
+        targetGameObject.SetActive(false);
+            secondtargetGameObject.SetActive(false);
+
+            
+
+            gameObject.SetActive(false);
+
+    }
+
 void OnTriggerEnter (Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player collected a Key!");
-
-            m_IsPlayerAtKey = true;
+            GetComponent<AudioSource>().Play();
+            Invoke("KeyCollect", displayDuration);
         }
     }
 
-/*
-    void OnTriggerEnter (Collider other)
-        {
-            if (other.gameObject == player)
-            {
-                m_IsPlayerAtKey = true;
-                
-            }
-        }
-*/
 
 
     

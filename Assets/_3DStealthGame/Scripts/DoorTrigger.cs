@@ -5,6 +5,7 @@ public class CollisionTextController : MonoBehaviour
 {
     public TextMeshProUGUI collisionText; 
     public float displayDuration = 1f;
+    public AudioSource DoorOpen;
 
 
     void Start()
